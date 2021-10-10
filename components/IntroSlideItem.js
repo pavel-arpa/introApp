@@ -5,12 +5,12 @@ import SafeAreaView from "react-native/Libraries/Components/SafeAreaView/SafeAre
 export default function IntroSlideItem(it) {
     let item = it.props
     return (
-        <View style={styles.slide}>
+        <View style={styles.slide} key={"l" + item.key}>
             <SafeAreaView style={{flex: 1}}>
                 {item.key === "one" && (
                     <View style={{flex: 1, justifyContent: "space-around", marginBottom: 200}}>
-                        {item.text.map((dataItem) => (
-                            <View>
+                        {item.text.map((dataItem, i) => (
+                            <View key={"t" + i}>
                                 <Text style={[styles.title, {
                                     fontSize: 44,
                                     lineHeight: 52
@@ -24,8 +24,8 @@ export default function IntroSlideItem(it) {
                     </View>)}
                 {item.key === "two" && (
                     <View style={{flex: 1, justifyContent: "space-around", marginBottom: 200}}>
-                        {item.text.map((dataItem) => (
-                            <View>
+                        {item.text.map((dataItem, i) => (
+                            <View key={"q" + i}>
                                 <Text style={[styles.title, {
                                     fontSize: 34,
                                     lineHeight: 40

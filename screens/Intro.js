@@ -60,7 +60,7 @@ export default function Intro() {
     const sliderEl = useRef(null);
     let _renderItem = ({item}) => {
         return (
-            <IntroSlideItem props={item} key={item.key}/>
+            <IntroSlideItem props={item} key={"j" + item.key}/>
         );
     }
     let _keyExtractor = (item) => item.key;
