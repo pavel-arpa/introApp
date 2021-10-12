@@ -23,7 +23,7 @@ const RenderPagination = ({activeIndex, data, slider}) => {
                       />
                   ))}
               </View>
-              <View style={{marginBottom: 30}}>
+              <View style={{marginBottom: 20, marginHorizontal: 10}}>
                   <AppButton title={data[activeIndex].buttonText} onPress={() => {
                       if (activeIndex !== data.length - 1) {
                           slider.goToSlide(activeIndex + 1, true)
