@@ -1,83 +1,78 @@
 import React from 'react';
-import {StyleSheet, Text, View} from "react-native";
+import {Dimensions, Text, View} from "react-native";
 import SafeAreaView from "react-native/Libraries/Components/SafeAreaView/SafeAreaView";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 export default function IntroSlideItem(it) {
     let item = it.props
+    let thirdSlideTexts
+    if (item.key === "three") {
+        thirdSlideTexts = item.text[0].text.split("\n").map((el, i) => (
+            <Text style={[styles.text, styles.text_medium]} key={"thirdSlideTexts" + i}>{el}</Text>
+        ))
+    }
     return (
-        <View style={styles.slide} key={"l" + item.key}>
-            <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={styles.slide} key={"l" + item.key}>
+            <View style={{flex: 1}}>
                 {item.key === "one" && (
-                    <View style={{flex: 1, justifyContent: "space-around", marginBottom: 200}}>
+                    <View style={{flex: 1, justifyContent: "space-around", marginBottom: 90}}>
                         {item.text.map((dataItem, i) => (
                             <View key={"t" + i}>
-                                <Text style={[styles.title, {
-                                    fontSize: 44,
-                                    lineHeight: 52
-                                }]}>{dataItem.title}</Text>
-                                <Text style={[styles.text, {
-                                    fontSize: 44,
-                                    lineHeight: 52
-                                }]}>{dataItem.text}</Text>
+                                <Text style={[styles.text, styles.text_big, styles.text_faded]}>{dataItem.title}</Text>
+                                <Text style={[styles.text, styles.text_big]}>{dataItem.text}</Text>
                             </View>
                         ))}
                     </View>)}
                 {item.key === "two" && (
-                    <View style={{flex: 1, justifyContent: "space-around", marginBottom: 200}}>
+                    <View style={{flex: 1, justifyContent: "space-around", marginBottom: 90}}>
                         {item.text.map((dataItem, i) => (
                             <View key={"q" + i}>
-                                <Text style={[styles.title, {
-                                    fontSize: 34,
-                                    lineHeight: 40
-                                }]}>{dataItem.title}</Text>
-                                <Text style={[styles.text, {
-                                    fontSize: 24,
-                                    lineHeight: 28
-                                }]}>{dataItem.text}</Text>
-                                <Text style={styles.adl}>{dataItem.adl}</Text>
+                                <Text style={[styles.text, styles.text_medium, styles.text_faded]}>{dataItem.title}</Text>
+                                <Text style={[styles.text, styles.text_small]}>{dataItem.text}</Text>
+                                <Text style={[styles.text, styles.text_small, styles.text_normal]}>{dataItem.adl}</Text>
                             </View>
                         ))}
                     </View>)}
                 {item.key === "three" && (
-                    <View style={{flex: 1, justifyContent: "space-around", marginBottom: 200}}>
-                        <Text style={[styles.title, {
-                            fontSize: 44,
-                            lineHeight: 52
-                        }]}>{item.text[0].title}</Text>
-                        <Text style={[styles.text, {
-                            fontSize: 36,
-                            lineHeight: 42
-                        }]}>{item.text[0].text}</Text>
+                    <View style={{flex: 1, justifyContent: "space-around", marginBottom: 90}}>
+                        <Text style={[styles.text, styles.text_big, styles.text_faded]}>{item.text[0].title}</Text>
+                        {thirdSlideTexts}
                     </View>
                 )}
-            </SafeAreaView>
-        </View>
+            </View>
+        </SafeAreaView>
     )
 }
 
-const styles = StyleSheet.create({
+
+const styles = EStyleSheet.create({
     slide: {
         flex: 1,
         flexDirection: "column",
         padding: 20,
         justifyContent: "space-around"
     },
-    title: {
-        fontFamily: "Roboto",
-        color: "rgba(255,255,255,0.4)",
-        fontWeight: "bold"
-    },
     text: {
         fontFamily: "Roboto",
         color: "#fff",
         fontWeight: "bold",
-        display: "flex"
     },
-    adl: {
-        fontFamily: "Roboto",
-        fontSize: 24,
-        fontWeight: "normal",
-        color: "#fff",
-        lineHeight: 28
+    text_faded: {
+        color: "rgba(255,255,255,0.4)"
+    },
+    text_normal: {
+        fontWeight: "normal"
+    },
+    text_big: {
+        fontSize: "32rem",
+        lineHeight: "38rem"
+    },
+    text_medium: {
+        fontSize: "25rem",
+        lineHeight: "30rem"
+    },
+    text_small: {
+        fontSize: "18rem",
+        lineHeight: "22rem"
     }
 })

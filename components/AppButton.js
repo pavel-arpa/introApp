@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from "react-native";
+import {Text, TouchableOpacity} from "react-native";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 
 const AppButton = ({ onPress, title }) => (
@@ -12,7 +13,8 @@ const AppButton = ({ onPress, title }) => (
     </TouchableOpacity>
 );
 
-const styles = StyleSheet.create({
+
+const styles = EStyleSheet.create({
     appButtonContainer: {
         shadowColor: "#000",
         shadowOffset: {
@@ -31,7 +33,8 @@ const styles = StyleSheet.create({
     appButtonText: {
         color: "#056FDD",
         alignSelf: "center",
-        fontSize: 22,
+        fontSize: "18rem",
+        lineHeight: "22rem",
         fontFamily: "Roboto",
         fontWeight: "normal"
     }

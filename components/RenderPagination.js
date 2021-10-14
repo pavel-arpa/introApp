@@ -6,7 +6,7 @@ import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
 const RenderPagination = ({activeIndex, data, slider}) => {
   return (
-      <View style={styles.paginationContainer}>
+      <SafeAreaView style={styles.paginationContainer}>
           <SafeAreaView>
               <View style={styles.paginationDots}>
                   {data.length > 1 &&
@@ -23,7 +23,7 @@ const RenderPagination = ({activeIndex, data, slider}) => {
                       />
                   ))}
               </View>
-              <View style={{marginBottom: 20, marginHorizontal: 10}}>
+              <View style={{marginBottom: 10, marginHorizontal: 10}}>
                   <AppButton title={data[activeIndex].buttonText} onPress={() => {
                       if (activeIndex !== data.length - 1) {
                           slider.goToSlide(activeIndex + 1, true)
@@ -31,7 +31,7 @@ const RenderPagination = ({activeIndex, data, slider}) => {
                   }}/>
               </View>
           </SafeAreaView>
-      </View>
+      </SafeAreaView>
   );
 };
 

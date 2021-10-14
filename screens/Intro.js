@@ -5,6 +5,8 @@ import AppIntroSlider from "react-native-app-intro-slider";
 import RenderPagination from "../components/RenderPagination";
 import React, {useRef} from "react";
 import IntroSlideItem from "../components/IntroSlideItem";
+import SafeAreaView from "react-native/Libraries/Components/SafeAreaView/SafeAreaView";
+
 
 
 const data = [
@@ -48,7 +50,7 @@ const data = [
         text: [
             {
                 title: 'How it works',
-                text: 'Share birth details\n\nAsk a question\n\nAn astrologer will make a prediction\n\nGet your answer',
+                text: 'Share birth details\nAsk a question\nAn astrologer will make a prediction\nGet your answer',
             },
         ],
         buttonText: 'Try now!'
@@ -67,11 +69,11 @@ export default function Intro() {
 
     return (
         <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 1}} colors={['#6B73FF', '#000DFF']} style={{flex: 1}}>
-            <View style={{flex: 1}}>
-                <View style={styles.logoLine}>
+            <SafeAreaView style={{flex: 1}}>
+                <SafeAreaView style={styles.logoLine}>
                     <Icon/>
                     <Text style={styles.logoText}>Calm</Text>
-                </View>
+                </SafeAreaView>
                 <AppIntroSlider renderItem={_renderItem}
                                 data={data}
                                 keyExtractor={_keyExtractor}
@@ -84,7 +86,7 @@ export default function Intro() {
                                 )}
                                 ref={sliderEl}
                 />
-            </View>
+            </SafeAreaView>
         </LinearGradient>
     )
 }
