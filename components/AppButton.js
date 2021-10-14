@@ -21,7 +21,7 @@ const styles = EStyleSheet.create({
             width: 0,
             height: 2,
         },
-        height: "50rem",
+        height: "44rem",
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 4,
@@ -37,6 +37,16 @@ const styles = EStyleSheet.create({
         lineHeight: "25rem",
         fontFamily: "Roboto",
         fontWeight: "normal"
+    },
+    '@media (max-width: 360)': {
+        appButtonContainer: {
+            height: "40rem",
+            borderRadius: "30rem",
+        },
+        appButtonText: {
+            fontSize: "15rem",
+            lineHeight: "20rem",
+        },
     }
 })
 

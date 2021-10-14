@@ -6,6 +6,7 @@ import RenderPagination from "../components/RenderPagination";
 import React, {useRef} from "react";
 import IntroSlideItem from "../components/IntroSlideItem";
 import SafeAreaView from "react-native/Libraries/Components/SafeAreaView/SafeAreaView";
+import EStyleSheet from "react-native-extended-stylesheet";
 
 
 
@@ -91,11 +92,12 @@ export default function Intro() {
     )
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     logoLine: {
         flexDirection: "row",
         marginHorizontal: 20,
-        marginTop: 20
+        marginTop: 20,
+        marginBottom: "10%"
     },
     logoText: {
         fontSize: 30,
@@ -104,5 +106,14 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         lineHeight: 33,
         color: "#fff"
-    }
+    },
+    '@media (max-width: 360)': {
+        logoLine: {
+            marginBottom: "1%"
+        },
+        logoText: {
+            fontSize: "22rem",
+            lineHeight: "28rem",
+        },
+    },
 })
